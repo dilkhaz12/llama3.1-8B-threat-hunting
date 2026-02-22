@@ -1,0 +1,30 @@
+{
+  "dataset_info": {
+    "creation_date": "2025-11-01",
+    "total_train_samples": 4355,
+    "original_train_samples": 871,
+    "synthetic_train_samples": 3484,
+    "total_test_samples": 218,
+    "adversarial_samples": 1308,
+    "raw_mitre_objects": 24773,
+    "tactics_count": 14,
+    "techniques_count": 709,
+    "expansion_factor": 5.0,
+    "train_test_split": "80/20"
+  },
+  "dataset_structure": {
+    "train_data": {
+      "synthetic_train_ttps": "/workspace/data/final_datasets/train_data/synthetic_train_ttps.json",
+      "original_train_ttps": "/workspace/data/final_datasets/train_data/original_train_ttps.json",
+      "instruction_response_pairs": "/workspace/data/final_datasets/train_data/instruction_response_pairs.json",
+      "combined_train_ttps": "/workspace/data/final_datasets/train_data/combined_train_ttps.json"
+    },
+    "test_data": {
+      "adversarial_test_examples": "/workspace/data/final_datasets/test_data/adversarial_test_examples.json",
+      "original_test_ttps": "/workspace/data/final_datasets/test_data/original_test_ttps.json"
+    },
+    "raw_data": {
+      "mitre_attack_raw": "/workspace/data/final_datasets/raw_data/mitre_attack_raw.json"
+    }
+  }
+}
