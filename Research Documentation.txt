@@ -1,0 +1,126 @@
+PhD Research: Domain-Specific LLM for Cyber Threat Hunting
+Project Overview
+This research project develops a domain-specific Large Language Model (LLM) for cyber threat hunting, leveraging LLAMA-3.1 8B and MITRE ATT&CK TTPs (Tactics, Techniques, and Procedures).
+Architecture
+┌─────────────────────────────────────────────────────────────────┐
+│                    Research Pipeline                             │
+├─────────────────────────────────────────────────────────────────┤
+│  1. Data Preprocessing (01_data_preprocessing.py)               │
+│     └── MITRE ATT&CK v18.0 → Instruction-Response pairs         │
+│                                                                  │
+│  2. Synthetic Data Generation (02_synthetic_data_generation.py) │
+│     └── Evol-Instruct methodology → 5x dataset expansion        │
+│                                                                  │
+│  3. Custom Reward Function (03_reward_function.py)              │
+│     └── R = α₁·Relevance + α₂·Novelty + α₃·Impact + α₄·Feasibility │
+│                                                                  │
+│  4. Adversarial Perturbation (04_adversarial_perturbations.py)  │
+│     └── FGSM, PGD, Backtranslation for robustness testing       │
+│                                                                  │
+│  5. Model Training (05_model_training.py)                       │
+│     └── QLoRA + GRPO with adversarial robustness                │
+│                                                                  │
+│  6. Evaluation (06_evaluation.py)                               │
+│     └── PhD-level comprehensive evaluation framework            │
+└─────────────────────────────────────────────────────────────────┘
+Module Descriptions
+1. Data Preprocessing (01_data_preprocessing.py)
+•	Input: MITRE ATT&CK v18.0 Enterprise data
+•	Output: Structured instruction-response pairs in JSON format
+•	Split: 80% training, 20% testing (stratified by tactic)
+2. Synthetic Data Generation (02_synthetic_data_generation.py)
+•	Methodology: Evol-Instruct (adapted from WizardLM)
+•	Expansion Factor: 5x original training data
+•	Strategies:
+–	Stylistic variations (40%)
+–	Contextual augmentation (30%)
+–	Parameter variation (20%)
+–	Technique combination (10%)
+3. Custom Reward Function (03_reward_function.py)
+Mathematical formulation:
+R_total = α₁·R_relevance + α₂·R_novelty + α₃·R_impact + α₄·R_feasibility
+
+Where:
+- α₁ = 0.30 (Relevance weight)
+- α₂ = 0.25 (Novelty weight)
+- α₃ = 0.30 (Impact weight)
+- α₄ = 0.15 (Feasibility weight)
+
+Target scores:
+- Relevance: >0.8
+- Novelty: >0.7
+- Impact: >0.6
+- Feasibility: >0.6
+- Overall: >0.75
+4. Adversarial Perturbation (04_adversarial_perturbations.py)
+•	FGSM: Fast Gradient Sign Method for text perturbation
+•	PGD: Projected Gradient Descent for iterative attacks
+•	Backtranslation: Semantic-preserving paraphrase generation
+•	Robustness Penalty: λ × std_dev(perturbed_scores)
+5. Model Training (05_model_training.py)
+•	Base Model: Llama 3.1 8B Instruct
+•	Quantization: QLoRA (4-bit with LoRA rank 64-128)
+•	Optimizer: GRPO (Group Relative Policy Optimization)
+•	Curriculum Learning: Perturbation ratio 5% → 15%
+•	Dynamic λ Adaptation: Double if ASR > 10%, cap at 0.3
+6. Evaluation (06_evaluation.py)
+Comprehensive evaluation metrics: - Relevance Score (MITRE alignment) - Novelty Score (compared to known TTPs) - Impact Score (security severity) - Feasibility Score (operational practicality) - Attack Success Rate (ASR) - Statistical significance testing
+File Structure
+/workspace/
+├── code/
+│   ├── 01_data_preprocessing.py      # Data preparation
+│   ├── 02_synthetic_data_generation.py # Dataset expansion
+│   ├── 03_reward_function.py         # Reward calculation
+│   ├── 04_adversarial_perturbations.py # Robustness testing
+│   ├── 05_model_training.py          # Model fine-tuning
+│   ├── 06_evaluation.py              # Evaluation framework
+│   └── main_runner.py                # Pipeline orchestrator
+├── data/
+│   ├── raw/                          # Original MITRE data
+│   └── processed/                    # Processed datasets
+├── models/                           # Saved model checkpoints
+├── docs/                             # Documentation
+└── charts/                           # Visualization outputs
+Requirements
+Software
+•	Python 3.10+
+•	PyTorch 2.0+
+•	Transformers 4.35+
+•	Unsloth (for efficient LoRA)
+•	TRL (Transformer Reinforcement Learning)
+•	Sentence-Transformers
+Hardware
+•	GPU with CUDA support (recommended: A100 40GB+)
+•	32GB+ RAM
+•	100GB+ storage
+Usage
+Full Pipeline
+cd /workspace/code
+python main_runner.py --all
+Individual Modules
+# Data preprocessing
+python 01_data_preprocessing.py
+
+# Synthetic data generation
+python 02_synthetic_data_generation.py
+
+# Model training
+python 05_model_training.py
+
+# Evaluation
+python 06_evaluation.py
+Key Innovations
+1.	Domain-Specific Reward Function: Custom multi-metric reward aligned with cybersecurity objectives
+2.	Adversarial Robustness Training: Integrated perturbation-based training for model resilience
+3.	Curriculum Learning: Gradual difficulty increase during training
+4.	Dynamic Adaptation: Automatic hyperparameter adjustment based on robustness metrics
+Citation
+@phdthesis{ttp_llm_2025,
+  title={A Domain-Specific LLM for Cyber Threat Hunting Based on LLAMA-3 and MITRE TTPs},
+  author={PhD Candidate},
+  year={2025},
+  school={University Name}
+}
+License
+This research code is for academic purposes only.
+
