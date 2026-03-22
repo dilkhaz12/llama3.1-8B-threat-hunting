@@ -54,7 +54,7 @@ python code/06_evaluation.py
 
 | Parameter | Value |
 |-----------|-------|
-| Base Model | LLaMA-3.1-8B |
+| Base Model | LLAMA-3.1-8B Instruct|
 | LoRA Rank (r) | 64 |
 | LoRA Alpha | 128 |
 | Learning Rate | 2e-5 |
