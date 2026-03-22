@@ -2,13 +2,13 @@ Hugging Face Access Guide - Step by Step
 
 Quick Start: 3-Step Process
 
-Step 1: Create Account (5 minutes)
+Step 1: Create Account
 1. Go to [huggingface.co](https://huggingface.co/)
 2. Click "Sign Up"
 3. Use your email address
 4. Verify email address
 
-Step 2: Request LLAMA-3.1 Access (10 minutes)
+Step 2: Request LLAMA-3.1 Access
 1. Go to: [Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct)
 2. Click the "Request access" button (blue button)
 3. Fill out the form:
@@ -18,7 +18,7 @@ Step 2: Request LLAMA-3.1 Access (10 minutes)
    - Additional information: "Researching domain adaptation of LLAMA-3.1 for MITRE ATT&CK framework"
 4. Submit the request
 
-Step 3: Get Access Token (5 minutes)
+Step 3: Get Access Token
 Wait for approval email (usually 1-2 hours), then:
 1. Go to [Settings > Access Tokens](https://huggingface.co/settings/tokens)
 2. Click "New token"

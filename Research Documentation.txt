@@ -155,7 +155,7 @@ The synthesized TTP dataset used for training will be released under a research-
 
 | Parameter | Value |
 |-----------|-------|
-| Base Model | LLaMA-3.1-8B |
+| Base Model | LLAMA-3.1-8B Instruct|
 | LoRA Rank (r) | 64 |
 | LoRA Alpha | 128 |
 | LoRA Dropout | 0.05 |
@@ -224,4 +224,7 @@ R_total = w1·R_semantic + w2·R_tactical + w3·R_novelty + w4·R_coherence
 ### License
 
 This research is released under the MIT License for academic and research purposes.
+
+
+
 

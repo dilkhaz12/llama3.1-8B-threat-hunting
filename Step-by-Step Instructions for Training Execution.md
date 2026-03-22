@@ -116,7 +116,7 @@ Outcomes
 ## Cost Considerations
 ### Google Colab Free Tier
 - Cost: Free (within limits)
-- GPU: T4 (16GB VRAM)
+- GPU: T4 (16GB+ VRAM)
 - Runtime: 12 hours max per session
 - Storage: ~77GB temporary
 - Model Download: ~20GB from Hugging Face
@@ -137,6 +137,13 @@ Potential Issues and Solutions
 
 4. Long Training Times
    - Solution: Checkpoint saving and resumption capability
+
+
+
+
+
+
+
 
 
 

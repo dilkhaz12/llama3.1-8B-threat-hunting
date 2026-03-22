@@ -2,14 +2,14 @@ Key Implementation Features
 
 1. Environment Setup
 # Hardware verification
-- T4 GPU with 16GB memory
-- CUDA 11.8 support
+- T4 GPU with 16GB+ 
+- CUDA support
 - Optimized memory management
 
 ## Technical Requirements
 ### Google Colab Pro Setup
 - Hardware: T4 GPU (16GB VRAM)
-- Runtime: Python 3.8+ with CUDA 11.8
+- Runtime: Python 3.8+ with CUDA
 - Memory: Sufficient for 8B model with 4-bit quantization
 - Storage: 20GB+ free space for model and data
 ### Access Requirements
@@ -21,7 +21,7 @@ Key Implementation Features
 # LLAMA-3.1-8B with QLoRA
 - Base Model: meta-llama/Meta-Llama-3.1-8B-Instruct
 - Quantization: 4-bit NF4
-- LoRA Rank: 64, Alpha: 32
+- LoRA Rank: 64, Alpha: 128
 - Parameter Adaptation: 0.21%
 - Target Modules: q_proj, k_proj, v_proj, o_proj
 
