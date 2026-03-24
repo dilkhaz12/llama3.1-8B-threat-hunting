@@ -1,7 +1,7 @@
 # A Domain-Specific LLM for Cyber Threat Hunting Based on LLAMA-3 and MITRE TTPs
 
 Research Overview
-This research presents a novel approach to cyber threat hunting by fine-tuning a domain-specific Large Language Model (LLM) capable of discovering NEW attack techniques that don't exist in the MITRE ATT&CK framework. Unlike traditional classification approaches, this work enables proactive threat discovery before techniques are publicly catalogued.
+This research project develops a domain-specific Large Language Model (LLM) for cyber threat hunting, leveraging LLAMA-3.1 8B and MITRE ATT&CK TTPs (Tactics, Techniques, and Procedures). This repository contains the complete implementation and dissertation for PhD research on developing a domain-specific Large Language Model (LLM) for cyber threat hunting, focusing on Novel TTP Discovery rather than classification.
 
 Key frameworks:
 - MITRE ATT&CK: Enterprise Matrix v18.0
