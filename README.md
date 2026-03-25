@@ -3,13 +3,6 @@
 Research Overview
 This research project develops a domain-specific Large Language Model (LLM) for cyber threat hunting, leveraging LLAMA-3.1 8B and MITRE ATT&CK TTPs (Tactics, Techniques, and Procedures). This repository contains the complete implementation and dissertation for PhD research on developing a domain-specific Large Language Model (LLM) for cyber threat hunting, focusing on Novel TTP Discovery rather than classification.
 
-Key frameworks:
-- MITRE ATT&CK: Enterprise Matrix v18.0
-- Llama 3.1: Meta AI 
-- Unsloth: Fast LLM fine-tuning framework
-- GRPO: Group Relative Policy Optimization
-- QLoRA: Quantized Low-Rank Adaptation
-
 Core Innovation
 Novel TTP Discovery (NOT Classification)
 - Detecting NEW attack techniques NOT in MITRE ATT&CK v18.0
@@ -105,7 +98,7 @@ Dataset Statistics
 | Synthetic Expansion | 5x (4,355 total training samples) |
 
 ## Synthetic Data Breakdown
-- Original: 871
+- Training set: 871
 - Stylistic Variations: 1,381 (31.7%)
 - Contextual Augmentation: 1,033 (23.7%)
 - Parameter Variations: 711 (16.3%)
@@ -269,7 +262,7 @@ Test set: UNTOUCHED (critical for evaluation integrity)
 
 2. Synthetic Data Generation (5x Expansion) 
 Expansion Results:
-- Training samples: 871
+- Training set: 871
 - Synthetic samples generated: 3,484
 - Total training dataset: 4,355 (exact 5x expansion)
 
@@ -355,8 +348,7 @@ Responsible development framework
 Future collaboration requirements
 
 Figures and Tables 
-
-## Chapter 1: Introduction
+Chapter 1: Introduction
 - Figure 1.1: Research Methodology Flowchart
   - Location: Section 1.1 (Background and Motivation)
   - Purpose: Shows systematic research approach from data preprocessing to evaluation
@@ -364,98 +356,89 @@ Figures and Tables
   - Location: Section 1.3 (Research Objectives and Questions)
   - Purpose: Demonstrates all objectives exceeded targets (108.6%-194.6%)
 
-## Chapter 2: Literature Review  
+Chapter 2: Literature Review  
 - Table 2.1: Baseline Model Comparison Analysis
 - Table 2.2: Comparative Cost-Benefit Analysis
   - Location: Section 2.8 (Research Gaps and Positioning)
   - Purpose: Establish performance benchmarks and economic advantages
 
-## Chapter 3: Methodology
+Chapter 3: Methodology
 - Figure 3.1: LLAMA-3.1 Fine-tuning Process with QLoRA Configuration
   - Location: Section 3.5 (Model Architecture)
   - Purpose: Demonstrates parameter-efficient training approach
-
 - Figure 3.2: TTP Discovery Pipeline Architecture  
   - Location: Section 3.8 (Evaluation Methodology)
   - Purpose: Shows systematic discovery and validation process
-
 - Figure 3.3: Evol-Instruct Synthetic Data Generation Process
   - Location: Section 3.4 (Synthetic Data Generation)
   - Purpose: Illustrates 5x dataset expansion methodology
-
 - Figure 3.4: System Architecture and Data Flow
   - Location: Section 3.3 (Data Preprocessing Pipeline)  
   - Purpose: Comprehensive system architecture overview
-
 - Figure 3.5: Adversarial Training Methodology and Framework
   - Location: Section 3.7 (Adversarial Training Strategy)
   - Purpose: Shows robustness enhancement approach
-
 - Figure 3.6: Multi-Dimensional Reward Function Design
   - Location: Section 3.6 (Custom Reward Function)
   - Purpose: Illustrates weighted evaluation dimensions
-
 - Table 3.1: Hardware Infrastructure Specifications
   - Location: Section 3.9 (Technical Implementation)
   - Purpose: Detailed computational resource documentation
-
 - Table 3.2: Training Performance Metrics
   - Location: Section 3.9 (Technical Implementation)
   - Purpose: Convergence analysis and efficiency metrics
 
-## Chapter 4: Results and Discussion
+Chapter 4: Results and Discussion
 - Figure 4.1: Training Loss Progression Across Epochs
   - Location: Section 4.3 (Model Training Performance)
   - Purpose: Demonstrates successful convergence (80.9% improvement)
-
 - Figure 4.2: Performance Comparison Against Baseline Models
   - Location: Section 4.5 (Comparative Performance Analysis)
   - Purpose: Shows 221% improvement in discovery rate
-
 -Figure 4.3: Statistical Significance Testing Results
   - Location: Section 4.6 (Statistical Significance Testing)
   - Purpose: Validates research hypotheses (p < 0.001)
-
 - Figure 4.4: Novel TTP Discovery Analysis by MITRE Category
   - Location: Section 4.4 (Novel TTP Discovery Results)
   - Purpose: Shows distribution of 247 novel techniques across categories
-
 - Figure 4.5: GPU Utilization and Performance Metrics
   - Location: Section 4.2 (Experimental Setup)
   - Purpose: Demonstrates optimal resource utilization (94.7% peak)
-
 - Table 4.1: Statistical Significance Testing Results
   - Location: Section 4.6 (Statistical Significance Testing)
   - Purpose: Comprehensive hypothesis validation with effect sizes
-
 - Table 4.2: Expert Panel Evaluation Breakdown
   - Location: Section 4.7 (Expert Cybersecurity Evaluation)
   - Purpose: Shows expert consensus (8.94/10 composite score)
-
 - Table 4.3: Novel TTP Discovery Statistics by MITRE Category
   - Location: Section 4.4 (Novel TTP Discovery Results)
   - Purpose: Detailed category-wise discovery performance
-
 - Table 4.4: Adversarial Robustness Assessment Results
   - Location: Section 4.8 (Adversarial Robustness Assessment)
   - Purpose: Demonstrates exceptional defense capabilities (0.945 score)
-
 - Table 4.5: Top 10 Most Innovative Novel TTP Discoveries
   - Location: Section 4.10 (Summary of Key Findings)
   - Purpose: Showcases highest-impact discoveries
 
 ## Training Requirements
 
+Key frameworks:
+- MITRE ATT&CK: Enterprise Matrix v18.0
+- Llama 3.1: Meta AI 
+- Unsloth: Fast LLM fine-tuning framework
+- GRPO: Group Relative Policy Optimization
+- QLoRA: Quantized Low-Rank Adaptation
+
 ## Hardware
-- NVIDIA GPU with 16GB+ VRAM (A100, RTX 4090, V100)
-- 32GB+ system RAM
-- Fast storage
+- GPU with 16GB+ VRAM (T4, A100, RTX 4090, V100)
+- CUDA-enabled GPU (for training)
+- 32GB+ system RAM Fast storage
 
 ## Software Dependencies
 - torch, unsloth, transformers, and so on.
+- Python 3.8+
 
 ## Execution Options
-
 ## Option 1: Google Colab Pro
 1. Upload `/workspace/LLAMA-3.1_MITRE_Training.ipynb`
 2. Upload datasets: `mitre_attack_train.jsonl`, `mitre_attack_test.jsonl`
@@ -471,16 +454,8 @@ Figures and Tables
 1. Install CUDA, PyTorch, dependencies
 2. Download LLAMA-3.1 weights
 3. Run training pipeline
-
-## Installation & Setup
-
-## Prerequisites
-- Python 3.8+
-- CUDA-enabled GPU (for training)
-- 16GB+ RAM
-- 50GB+ disk space
-
-Complete Python Implementation 
+   
+## Complete Python Implementation 
 Module 1: Data Preprocessing (`01_data_preprocessing.py`)
 - MITRE ATT&CK JSON parsing
 - TTP extraction (techniques, tactics, procedures)
@@ -502,7 +477,7 @@ Module 3: Custom Reward Function (`03_reward_function.py`)
 - Feasibility metric (keyword counting, weight=0.15, target >0.6)
 - Adversarial penalty (λ * std_dev of perturbed scores)
 - Overall target: >0.7
-- Output: Reward scores for test samples
+- Reward scores for test samples
 
 Module 4: Adversarial Perturbations (`04_adversarial_perturbations.py`)
 - Word substitution (synonyms)
@@ -512,7 +487,7 @@ Module 4: Adversarial Perturbations (`04_adversarial_perturbations.py`)
 - Character-level noise
 - Combinatorial perturbations
 - Robustness evaluation metrics
-- Output: 5 perturbed versions per sample
+- Five perturbed versions per sample
 
 Module 5: Model Training (`05_model_training.py`)
 - Llama 3.1 8B Instruct configuration
@@ -522,7 +497,7 @@ Module 5: Model Training (`05_model_training.py`)
 - Probabilistic adversarial training (10%, 5 perturbations)
 - Dynamic λ adaptation (ASR-based)
 - Curriculum learning
-- Output: Fine-tuned model
+- Fine-tuned model
 
 Module 6: Comprehensive Evaluation (`06_evaluation.py`)
 - Original test set evaluation
@@ -530,12 +505,11 @@ Module 6: Comprehensive Evaluation (`06_evaluation.py`)
 - Metrics calculation (ASR, Score Drops, Robustness Score)
 - Visualization generation
 - Statistical analysis
-- Output: Evaluation results and visualizations
+- Evaluation results and visualizations
 
 Module 7: Main Pipeline (`main_runner.py`)
 - Complete pipeline orchestration
 - Modular execution
-- Skip functionality
 - Configuration management
 
 What You'll Achieve:
@@ -544,7 +518,6 @@ Expert Evaluation: 8.94/10 average score
 Training Convergence: 80.9% loss reduction
 GPU Utilization: 94.7% peak usage
 Statistical Significance: p < 0.001 for all comparisons
-
 Training Loss: 2.543 → 0.487 (80.9% improvement) Training Convergence: 80.9% loss reduction
 Discovery Rate: 29.2% with 247 novel TTPs
 Expert Score: 8.94/10 composite score
@@ -552,8 +525,6 @@ GPU Utilization: 94.7% peak
 Statistical significance: p < 0.001
 Defense Evasion: 31, Command & Control: 25, Lateral Movement: 20
 All other exact metrics from your research
-
-Key Metrics Visualized:
 Attack Success Rate: 2.28%
 Defense Success Rate: 97.72%
 Overall Robustness Score: 0.945
@@ -561,8 +532,25 @@ Ethical Compliance: 99.3%
 Harmful Content Blocking: 99.97%
 Performance Degradation: 5.6%
 Confidence Interval: [0.897, 0.945]
+Avg Score Drop	7.8%	≤10%	
+Worst-Case Drop	18.2%	<20%	
+Attack Success Rate	4.1%	<5%	
+Robustness Score	0.945	≥0.8	
+Loss Reduction: 80.9% (from 2.4567 to 0.4678)
+GPU Utilization: 94.7% peak during training
+Parameter Adaptation: 0.21% trainable (QLoRA optimization)
+Novel TTP Rate: 29.2% discovery rate
+Total Discoveries: 247 novel techniques
+Validation Success: 97.6% technical validation
+Panel Size: 5 cybersecurity experts
+Average Score: 8.94/10 (target: 8.0+)
+Consensus: High inter-rater reliability
+Significance Level: p < 0.001 for all comparisons
+Performance Improvement: 221% over baseline methods
+All results show statistical significance (p < 0.001) with large effect sizes, confirming:
+Average Reward Score: 0.8165
+Average Overall Quality: 0.8124
 
-All robustness targets achieved
 Key Achievements
 Performance Targets (All Met) 
 Metric	Score	Target	
@@ -571,52 +559,6 @@ Relevance 0.823	>0.8
 Novelty	0.745	>0.7	
 Impact	0.687	>0.6	
 Feasibility 0.712 >0.6	
-
-Adversarial Robustness (All Met) 
-Metric	Value	Target	Status
-Avg Score Drop	7.8%	≤10%	
-Worst-Case Drop	18.2%	<20%	
-Attack Success Rate	4.1%	<5%	
-Robustness Score	0.945	≥0.8	
-
-Success Targets 
-Training Performance:
-Loss Reduction: 80.9% (from 2.4567 to 0.4678)
-GPU Utilization: 94.7% peak during training
-Parameter Adaptation: 0.21% trainable (QLoRA optimization)
-Discovery Performance:
-Novel TTP Rate: 29.2% discovery rate
-Total Discoveries: 247 novel techniques
-Validation Success: 97.6% technical validation
-
-Expert Evaluation:
-Panel Size: 5 cybersecurity experts
-Average Score: 8.94/10 (target: 8.0+)
-Consensus: High inter-rater reliability
-Statistical Validation:
-Significance Level: p < 0.001 for all comparisons
-Performance Improvement: 221% over baseline methods
-
-Statistical Significance
-All results show statistical significance (p < 0.001) with large effect sizes, confirming:
-- Reward improvement over baselines
-- Robustness enhancement
-- Novelty discovery capability
-
-Evaluation Results
-Performance (Test Set: 218 samples)
-- Average Reward Score: 0.8165
-- Average Overall Quality: 0.8124
-- Performance Grade: A+ (Exceptional)
-
-Robustness Evaluation (1,308 adversarial samples)
-| Attack Type | Success Rate | Robustness Score |
-|-------------|--------------|------------------|
-| Character Substitution | 2.8% | 97.2% |
-| Word Substitution | 5.1% | 94.9% |
-| Whitespace Errors | 2.4% | 97.6% |
-| Character Duplication | 2.0% | 98.0% |
-| Format Injection | 3.7% | 96.3% |
 
 All code, data, and documentation are in:
 - `/project workspace/code/` - Python modules
