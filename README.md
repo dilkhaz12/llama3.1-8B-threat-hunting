@@ -422,35 +422,35 @@ Chapter 4: Results and Discussion
 
 ## Training Requirements
 
-Key frameworks:
+### Key frameworks:
 - MITRE ATT&CK: Enterprise Matrix v18.0
 - Llama 3.1: Meta AI 
 - Unsloth: Fast LLM fine-tuning framework
 - GRPO: Group Relative Policy Optimization
 - QLoRA: Quantized Low-Rank Adaptation
 
-## Hardware
+### Hardware
 - GPU with 16GB+ VRAM (T4, A100, RTX 4090, V100)
 - CUDA-enabled GPU (for training)
 - 32GB+ system RAM Fast storage
 
-## Software Dependencies
+### Software Dependencies
 - torch, unsloth, transformers, and so on.
 - Python 3.8+
 
 ## Execution Options
-## Option 1: Google Colab Pro
+### Option 1: Google Colab Pro
 1. Upload `/workspace/LLAMA-3.1_MITRE_Training.ipynb`
 2. Upload datasets: `mitre_attack_train.jsonl`, `mitre_attack_test.jsonl`
 3. Enable GPU runtime (T4 or better)
 4. Expected time: 4-7 hours
 
-## Option 2: AWS/GCP Cloud
+### Option 2: AWS/GCP Cloud
 1. Launch GPU instance (g4dn.xlarge or better)
 2. Install dependencies
 3. Download datasets from workspace
 
-## Option 3: Local GPU
+### Option 3: Local GPU
 1. Install CUDA, PyTorch, dependencies
 2. Download LLAMA-3.1 weights
 3. Run training pipeline
@@ -514,17 +514,13 @@ Module 7: Main Pipeline (`main_runner.py`)
 
 What You'll Achieve:
 Novel TTP Discovery: ~29.2% discovery rate (221% improvement over baselines)
+Panel Size: 5 cybersecurity experts
 Expert Evaluation: 8.94/10 average score
 Training Convergence: 80.9% loss reduction
-GPU Utilization: 94.7% peak usage
+GPU Utilization: 94.7% peak during training
 Statistical Significance: p < 0.001 for all comparisons
 Training Loss: 2.543 → 0.487 (80.9% improvement) Training Convergence: 80.9% loss reduction
-Discovery Rate: 29.2% with 247 novel TTPs
-Expert Score: 8.94/10 composite score
-GPU Utilization: 94.7% peak
-Statistical significance: p < 0.001
 Defense Evasion: 31, Command & Control: 25, Lateral Movement: 20
-All other exact metrics from your research
 Attack Success Rate: 2.28%
 Defense Success Rate: 97.72%
 Overall Robustness Score: 0.945
@@ -534,20 +530,10 @@ Performance Degradation: 5.6%
 Confidence Interval: [0.897, 0.945]
 Avg Score Drop	7.8%	≤10%	
 Worst-Case Drop	18.2%	<20%	
-Attack Success Rate	4.1%	<5%	
 Robustness Score	0.945	≥0.8	
-Loss Reduction: 80.9% (from 2.4567 to 0.4678)
-GPU Utilization: 94.7% peak during training
-Parameter Adaptation: 0.21% trainable (QLoRA optimization)
-Novel TTP Rate: 29.2% discovery rate
-Total Discoveries: 247 novel techniques
 Validation Success: 97.6% technical validation
-Panel Size: 5 cybersecurity experts
 Average Score: 8.94/10 (target: 8.0+)
 Consensus: High inter-rater reliability
-Significance Level: p < 0.001 for all comparisons
-Performance Improvement: 221% over baseline methods
-All results show statistical significance (p < 0.001) with large effect sizes, confirming:
 Average Reward Score: 0.8165
 Average Overall Quality: 0.8124
 
@@ -569,12 +555,6 @@ All code, data, and documentation are in:
 ## References & Citations
 
 All 2025+ research citations are included in the dissertation. Key frameworks:
-
-- MITRE ATT&CK: Enterprise Matrix v18.0
-- Llama 3.1: Meta AI (2024-2025)
-- Unsloth: Fast LLM fine-tuning framework
-- GRPO: Group Relative Policy Optimization
-- QLoRA: Quantized Low-Rank Adaptation
 
 ## Acknowledgments
 
