@@ -72,6 +72,32 @@ Robustness Evaluation Metrics
 - torch, unsloth, transformers, and so on.
 - Python 3.8+
 
+## GRPO Training Details
+
+### Group Relative Policy Optimization (GRPO)
+
+GRPO extends standard policy optimization by incorporating group-based reward normalization:
+
+| GRPO Parameter | Value |
+|----------------|-------|
+| Group Size | 8 |
+| KL Coefficient (β) | 0.1 |
+| Clip Range | 0.2 |
+| Value Function Coefficient | 0.5 |
+| Entropy Coefficient | 0.01 |
+| Max Grad Norm | 1.0 |
+| GRPO Iterations | 1000 |
+| Reward Baseline | Group Mean |
+
+### Adversarial Training Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Perturbation Epsilon (ε) | 0.01 |
+| Adversarial Steps | 3 |
+| Perturbation Type | FGSM + PGD |
+| Adversarial Training Ratio | 0.3 |
+
 ## Execution Options
 Option 1: Google Colab Pro
 1. Upload `/workspace/LLAMA-3.1_MITRE_Training.ipynb`
