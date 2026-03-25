@@ -100,10 +100,8 @@ GRPO extends standard policy optimization by incorporating group-based reward no
 
 ## Execution Options
 Option 1: Google Colab Pro
-1. Upload `/workspace/LLAMA-3.1_MITRE_Training.ipynb`
-2. Upload datasets: `mitre_attack_train.jsonl`, `mitre_attack_test.jsonl`
-3. Enable GPU runtime (T4 or better)
-4. Expected time: 4-7 hours
+1. Enable GPU runtime (T4 or better)
+2. Expected time: 4-7 hours
 
 Option 2: AWS/GCP Cloud
 1. Launch GPU instance (g4dn.xlarge or better)
@@ -138,13 +136,10 @@ Module 3: Custom Reward Function (`03_reward_function.py`)
 - Overall target: >0.7
 
 Module 4: Adversarial Perturbations (`04_adversarial_perturbations.py`)
-- Word substitution (synonyms)
-- Word insertion (adverbs, adjectives)
-- Word deletion (non-essential terms)
-- Sentence reordering
-- Character-level noise
-- Combinatorial perturbations
-- Robustness evaluation metrics
+- FGSM: Fast Gradient Sign Method for text perturbation
+- PGD: Projected Gradient Descent for iterative attacks
+- Backtranslation: Semantic-preserving paraphrase generation
+- Robustness Penalty: λ × std_dev(perturbed_scores)
 - Five perturbed versions per sample
 
 Module 5: Model Training (`05_model_training.py`)
@@ -189,8 +184,6 @@ Avg Score Drop	7.8%	≤10%
 Worst-Case Drop	18.2%	<20%	
 Robustness Score	0.945	≥0.8	
 Validation Success: 97.6% technical validation
-Average Score: 8.94/10 (target: 8.0+)
-Consensus: High inter-rater reliability
 Average Reward Score: 0.8165
 Average Overall Quality: 0.8124
 
